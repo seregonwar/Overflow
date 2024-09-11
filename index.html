@@ -32,15 +32,20 @@
     }
 </style>
 <script>
+function log(message) {
+    console.log(message);
+    document.getElementById('msg').innerHTML += `<p>${message}</p>`;
+}
+
 function x1() { 
     let z1 = { a1: "data" }; 
     let b1 = z1; 
-    console.log("Before:", b1.a1); 
+    log("Before: " + b1.a1); 
     z1 = null; 
     try { 
-        console.log("After:", b1.a1); 
+        log("After: " + b1.a1); 
     } catch (e) { 
-        console.log("Error:", e.message); 
+        log("Error: " + e.message); 
     } 
 }
 
@@ -67,12 +72,14 @@ function y2(binData) {
         h2++; 
     }
     if (binData) {
-        console.log("Executing the payload with binary data:", binData);
+        log("Executing the payload with binary data: " + binData);
         let jailbreakSuccess = true; // Assume the jailbreak is successful
         if (jailbreakSuccess) {
-            console.log("Jailbreak successful!");
+            log("Jailbreak successful!");
+            alert("Jailbreak successful!");
         } else {
-            console.log("Jailbreak failed.");
+            log("Jailbreak failed.");
+            alert("Jailbreak failed.");
         }
     }
 }
@@ -86,7 +93,7 @@ function installBin() {
         let reader = new FileReader();
         reader.onload = function(event) {
             let binData = event.target.result;
-            console.log("Bin file loaded:", binData);
+            log("Bin file loaded: " + binData);
             executePayload(binData);
         };
         reader.readAsArrayBuffer(file);
@@ -96,7 +103,7 @@ function installBin() {
 
 function executePayload(binData) {
     y2(binData);
-    console.log("Executing payload with bin data:", binData);
+    log("Executing payload with bin data: " + binData);
 }
 
 let j4 = [];
@@ -110,12 +117,12 @@ const l6 = () => {
     while (m7 < 500) { 
         let n8 = { a1: "data" }; 
         let o9 = n8; 
-        console.log("Before:", o9.a1); 
+        log("Before: " + o9.a1); 
         n8 = null; 
         try { 
-            console.log("After:", o9.a1); 
+            log("After: " + o9.a1); 
         } catch (e) { 
-            console.log("Error:", e.message); 
+            log("Error: " + e.message); 
         } 
         m7++; 
         for (let p0 = 0; p0 < 1000; p0++) { 
@@ -184,7 +191,10 @@ function performExploit() {
 }
 
 function startExploitWithDelay() {
-    memExh();
+    // Start the string overflow process
+    y2();
+
+    // Set a timeout to execute the payload after 4.77 seconds
     setTimeout(() => {
         performExploit();
     }, 4770);
@@ -195,7 +205,7 @@ function startExploitWithDelay() {
  <div style="position: fixed; bottom: 0; left: 0; font-size: small; color: black; padding: 10px; background-color: white;">
     Made By <a href="https://hackerone.com/fixseregonwar" style="text-decoration: underline; color: darkblue;">Fixseregonwar</a> As Requested
     <br>
-    Credits to <a href="https://github.com/seregonwar/Overflow" style="text-decoration: underline; color: darkblue;">seregonwar</a> for the original code
+    Credits to <a href="https://x.com/idebty" style="text-decoration: underline; color: darkblue;">idebty</a> for the original code
 </div>
 
 <!-- Added margin to buttons to avoid overlap with the div -->
