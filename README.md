@@ -1,5 +1,10 @@
 # Overflow WebKit Memory Leak PoC
 
+## **DISCLAIMER**
+
+**THIS REPOSITORY IS FOR TESTING PURPOSES ONLY!**  
+A significant portion of this code might be incomplete or ineffective. If this vulnerability is ever fully exploited, it will likely be done by someone with far more expertise. I do not claim to be an expert in exploit development!
+
 ## Link
 Follow this link for the exploit: [Overflow WebKit Memory Leak PoC](https://seregonwar.github.io/Overflow/)
 
