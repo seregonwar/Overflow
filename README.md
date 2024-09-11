@@ -122,7 +122,7 @@ Running this Proof of Concept (PoC) comes with **serious risks** to the target d
 
 **DO NOT** run this code on critical devices or on devices that you are not prepared to lose. Modify the PoC and fully understand its workings before executing it to minimize risks. **The author is not responsible for any damage caused by using this code.**
 
-Let me know if you need further adjustments!
+
 ## Credit
 The credits for the structure on which this tool is based were written by the aforementioned idebty, the credits are therefore assigned to him for having found the flaw, I have only expanded the operation!:
 **Author**: [idebty](https://x.com/idebty?t=MT_ShLOs9wP9hcH3GNtkNA&s=09)  
