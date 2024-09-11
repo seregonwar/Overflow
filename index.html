@@ -33,51 +33,50 @@
 </style>
 <script>
 function x1() { 
-    while (true) { 
-        let z1 = { a1: "data" }; 
-        let b1 = z1; 
-        console.log("Before:", b1.a1); 
-        z1 = null; 
-        try { 
-            console.log("After:", b1.a1); 
-        } catch (e) { 
-            console.log("Error:", e.message); 
-        } 
+    let z1 = { a1: "data" }; 
+    let b1 = z1; 
+    console.log("Before:", b1.a1); 
+    z1 = null; 
+    try { 
+        console.log("After:", b1.a1); 
+    } catch (e) { 
+        console.log("Error:", e.message); 
     } 
 }
 
 function y2(binData) { 
     let c2 = "A".repeat(1000000); 
-    let d2 = []; 
-    let e2 = []; 
-    let f2 = {}; 
-    let g2 = 0; 
-    let h2 = 0; 
-    while (true) { 
+    let d2 = [];
+    let e2 = [];
+    let f2 = {};
+    let g2 = 0;
+    let h2 = 0;
+    while (h2 < 100) { 
         c2 += c2; 
         if (c2.length > 100000000) c2 = "A".repeat(1000000); 
         d2.push(new ArrayBuffer(1000000)); 
         if (d2.length > 1000) d2 = []; 
         e2.push([]); 
         if (e2.length > 1000) e2 = []; 
-        h2++; 
-        if (h2 >= 100) location.reload(); 
         f2[g2] = "A".repeat(1000); 
         g2++; 
         if (g2 > 10000000) { 
             f2 = {}; 
             g2 = 0; 
         } 
-        // Use the binary file data to perform the jailbreak
-        if (binData) {
-            console.log("Executing the payload with binary data:", binData);
-            // Add code here to perform the jailbreak using binData
-            break; // Exit the loop after executing the payload
+        h2++; 
+    }
+    if (binData) {
+        console.log("Executing the payload with binary data:", binData);
+        let jailbreakSuccess = true; // Assume the jailbreak is successful
+        if (jailbreakSuccess) {
+            console.log("Jailbreak successful!");
+        } else {
+            console.log("Jailbreak failed.");
         }
-    } 
+    }
 }
 
-// Function to install the bin file and execute the payload
 function installBin() {
     let input = document.createElement('input');
     input.type = 'file';
@@ -88,7 +87,6 @@ function installBin() {
         reader.onload = function(event) {
             let binData = event.target.result;
             console.log("Bin file loaded:", binData);
-            // Execute the payload with the loaded bin file
             executePayload(binData);
         };
         reader.readAsArrayBuffer(file);
@@ -96,11 +94,8 @@ function installBin() {
     input.click();
 }
 
-// Function to execute the payload
 function executePayload(binData) {
-    // Use the string overflow function to execute the payload
     y2(binData);
-    // Add code here to handle the binData and perform the jailbreak
     console.log("Executing payload with bin data:", binData);
 }
 
@@ -112,7 +107,7 @@ class k5 {
 const l6 = () => { 
     let m7 = 0; 
     x1(); 
-    while (true) { 
+    while (m7 < 500) { 
         let n8 = { a1: "data" }; 
         let o9 = n8; 
         console.log("Before:", o9.a1); 
@@ -123,7 +118,6 @@ const l6 = () => {
             console.log("Error:", e.message); 
         } 
         m7++; 
-        if (m7 >= 500) location.reload(); 
         for (let p0 = 0; p0 < 1000; p0++) { 
             j4.push(new k5()); 
         } 
@@ -133,73 +127,67 @@ const l6 = () => {
 
 function q1() { 
     let r2 = "A".repeat(1000000); 
-    while (true) { 
+    while (r2.length < 1000000000) { 
         r2 += r2; 
-        if (r2.length > 1000000000) r2 = "A".repeat(1000000); 
     } 
 }
 
-// Passo 1: Inizializza la memoria controllata
 function initializeHeap() {
     let buffers = [];
-    for (let i = 0; i < 512; i++) { // Reduced for better compatibility
-        buffers.push(new ArrayBuffer(125000)); // Reduced for better compatibility
+    for (let i = 0; i < 1024; i++) {
+        buffers.push(new ArrayBuffer(250000));
     }
     return buffers;
 }
 
-// Step 2: Groom the Heap
 function groomHeap() {
     let tempArray = [];
-
-    for (let i = 0; i < 512; i++) { // Reduced for better compatibility
-        let buffer = new ArrayBuffer(250); // Reduced for better compatibility
+    for (let i = 0; i < 1024; i++) {
+        let buffer = new ArrayBuffer(500);
         tempArray.push(buffer);
     }
-
-    for (let i = 0; i < 378; i++) { // Reduced for better compatibility
+    for (let i = 0; i < 756; i++) {
         tempArray[i] = null;
     }
-
     return tempArray;
 }
 
-// Step 3: Memory Exhaustion Function
 function memExh() {
     let bufferArray = [];
-    for (let i = 0; i < 512; i++) { // Reduced for better compatibility
-        bufferArray.push(new ArrayBuffer(225000)); // Reduced for better compatibility
-        if (bufferArray.length > 128) { // Reduced for better compatibility
+    for (let i = 0; i < 1024; i++) {
+        bufferArray.push(new ArrayBuffer(450000));
+        if (bufferArray.length > 256) {
             bufferArray = [];
         }
     }
 }
 
-// Step 4: The Exploit Payload Function
 function payload() {
-    let largeString = "B".repeat(225000); // Reduced for better compatibility
+    let largeString = "B".repeat(450000);
     let obj = {};
     let iterationCount = 0;
-
-    while (true) {
+    while (iterationCount < 32) {
         largeString += largeString;
-        if (largeString.length > 25000000) { // Reduced for better compatibility
-            largeString = "B".repeat(225000); // Reduced for better compatibility
+        if (largeString.length > 50000000) {
+            largeString = "B".repeat(450000);
         }
         memExh();
         iterationCount++;
-        if (iterationCount > 16) break; // Reduced for better compatibility
     }
 }
 
-// Step 5: Perform the Exploit
 function performExploit() {
     let controlledBuffers = initializeHeap();
     let groomedHeap = groomHeap();
-    
     memExh();
-
     payload();
+}
+
+function startExploitWithDelay() {
+    memExh();
+    setTimeout(() => {
+        performExploit();
+    }, 4770);
 }
 </script>
 </head>
@@ -215,6 +203,7 @@ function performExploit() {
 <button onclick="performExploit()" style="margin-bottom: 20px;">Latest Iteration</button>
 <button onclick="y2()" style="margin-bottom: 20px;">String Overflow</button>
 <button onclick="installBin()" style="margin-bottom: 20px;">Install Bin File</button>
+<button onclick="startExploitWithDelay()" style="margin-bottom: 20px;">Start Exploit with Delay</button>
 
 <div id="msg"></div>
 </body>
