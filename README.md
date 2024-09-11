@@ -1,4 +1,4 @@
-https://debvt.github.io/Wm/
+https://seregonwar.github.io/Overflow/
 
 
 **Author:https://x.com/idebty?t=MT_ShLOs9wP9hcH3GNtkNA&s=09**
@@ -109,7 +109,3 @@ This PoC is for educational purposes only. The author is not responsible for any
 ##**IM NOT LIABLE TO ANY DAMAGES CAUSED BY THIS POC OR ANY OTHER USE OF IT THIS CAN BRICK AND MIGHT BRICK YOUR SYSTEM IF LEFT UNEDITED **
 
 
-**A Message to Sony**
-
-
-Sony I have reported this and got dismmised and I have provided enough proof plus with that unreleased PoC it's not my fault that even after 6months you didn't fix it I have gave you more then enough to fix this is to hopefully encourage you to fix it 
