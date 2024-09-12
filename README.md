@@ -104,7 +104,7 @@ performExploit();
 
 ## Disclaimer
 This PoC is for educational purposes only. The author assumes no responsibility for any misuse of this code. 
-Certainly! Here’s the **WARNING** section translated into English and formatted with markdown:
+Certainly! 
 
 ## **WARNING**
 
