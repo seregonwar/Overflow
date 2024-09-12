@@ -5,6 +5,8 @@
 **THIS REPOSITORY IS FOR TESTING PURPOSES ONLY!**  
 A significant portion of this code might be incomplete or ineffective. If this vulnerability is ever fully exploited, it will likely be done by someone with far more expertise. I do not claim to be an expert in exploit development!
 
+This PoC is for **educational purposes only**. The author assumes no responsibility for any misuse of this code. 
+Certainly! 
 ## Link
 Follow this link for the exploit: [Overflow WebKit Memory Leak PoC](https://seregonwar.github.io/Overflow/)
 
@@ -102,9 +104,6 @@ performExploit();
 3. Further testing and analysis are required to fully understand this vulnerability.
 4. If needed, insert your custom payload inside the `payload` function.
 
-## Disclaimer
-This PoC is for educational purposes only. The author assumes no responsibility for any misuse of this code. 
-Certainly! 
 
 ## **WARNING**
 
